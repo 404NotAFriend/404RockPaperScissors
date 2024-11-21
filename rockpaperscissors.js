@@ -1,5 +1,3 @@
-console.log("hello world");
-
 // Jogo do Pedra Papel e Tesoura
 
 //Criar IA Oponente
@@ -7,11 +5,11 @@ console.log("hello world");
 function getComputerChoice() {
   const randomNumber = Math.random() * 3;
   if (randomNumber < 1) {
-    return "pedra";
+    return "rock";
   } else if (randomNumber < 2) {
-    return "papel";
+    return "paper";
   } else {
-    return "tesoura";
+    return "scissors";
   }
 }
 
@@ -20,11 +18,46 @@ console.log(getComputerChoice());
 // Criar opções de jogadas para o Jogador Real
 
 function getHumanChoice() {
-  let jogadas = window.prompt("Choose between 'Rock', 'Paper', or 'Scissors':");
+  let jogada = window.prompt("Choose between 'Rock', 'Paper', or 'Scissors':");
+  return jogada.toLowerCase();
 }
 
-console.log(getHumanChoice());
+// Criar marcação de Pontuação
+
+let humanScore = 0;
+let computerScore = 0;
 
 // Criar Tabuleiro
 
-// Criar marcação de Pontuação
+function playRound(humanChoice, computerChoice) {
+  if (humanChoice === computerChoice) {
+    return "It's a tie!";
+  } else if (humanChoice === "rock" && computerChoice === "scissors") {
+    humanScore++;
+    return "You win!";
+  } else if (humanChoice === "rock" && computerChoice === "paper") {
+    computerScore++;
+    return "You Loose!";
+  } else if (humanChoice === "scissors" && computerChoice === "rock") {
+    computerScore++;
+    return "You Loose!";
+  } else if (humanChoice === "scissors" && computerChoice === "paper") {
+    humanScore++;
+    return "You Win!";
+  } else if (humanChoice === "paper" && computerChoice === "scissors") {
+    computerScore++;
+    return "You Loose!";
+  } else if (humanChoice === "paper" && computerChoice === "rock") {
+    computerScore++;
+    return "You Win!";
+  }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+const result = playRound(humanSelection, computerSelection);
+console.log(`You chose: ${humanSelection}`);
+console.log(`Computer chose: ${computerSelection}`);
+console.log(result);
+console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
