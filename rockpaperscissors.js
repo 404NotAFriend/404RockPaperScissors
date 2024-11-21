@@ -20,7 +20,7 @@ function getHumanChoice() {
   return jogada.toLowerCase();
 }
 
-// Criar marcação de Pontuação
+// Criar jogo de 5 rondas
 
 function playGame() {
   let humanScore = 0;
@@ -61,5 +61,5 @@ function playGame() {
     console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
   }
 }
+
 playGame();
-// Criar 5 rondas
