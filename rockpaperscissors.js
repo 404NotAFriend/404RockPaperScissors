@@ -17,8 +17,14 @@ function getComputerChoice() {
 
 console.log(getComputerChoice());
 
-// Criar Tabuleiro
-
 // Criar opções de jogadas para o Jogador Real
+
+function getHumanChoice() {
+  let jogadas = window.prompt("Choose between 'Rock', 'Paper', or 'Scissors':");
+}
+
+console.log(getHumanChoice());
+
+// Criar Tabuleiro
 
 // Criar marcação de Pontuação
