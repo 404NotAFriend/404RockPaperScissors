@@ -49,7 +49,7 @@ function playRound(humanChoice, computerChoice) {
   }
 }
 
-function playGame() {
+/* function playGame() {
   for (let i = 0; i < 5; i++) {
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice();
@@ -60,6 +60,18 @@ function playGame() {
     console.log(result);
     console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
   }
+}
+*/
+
+let roundCount = 0;
+const maxRounds = 5;
+
+function checkGameOver() {
+  if (roundCount >= maxRounds) {
+    alert("Game over! Please refresh the page to play again.");
+    return true;
+  }
+  return false;
 }
 
 //Creating 3 buttons one for each available play
@@ -98,6 +110,8 @@ img3.style.height = "100%"; //
 img3.style.borderRadius = "10px";
 
 rockButton.addEventListener("click", () => {
+  if (checkGameOver()) return;
+
   const humanChoice = "rock";
   const computerChoice = getComputerChoice();
 
@@ -106,9 +120,13 @@ rockButton.addEventListener("click", () => {
   console.log(`Computer chose: ${computerChoice}`);
   console.log(result);
   console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
+  updateScoreBoard();
+  roundCount++;
 });
 
 paperButton.addEventListener("click", () => {
+  if (checkGameOver()) return;
+
   const humanChoice = "paper";
   const computerChoice = getComputerChoice();
 
@@ -117,9 +135,13 @@ paperButton.addEventListener("click", () => {
   console.log(`Computer chose: ${computerChoice}`);
   console.log(result);
   console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
+  updateScoreBoard();
+  roundCount++;
 });
 
 scissorsButton.addEventListener("click", () => {
+  if (checkGameOver()) return;
+
   const humanChoice = "scissors";
   const computerChoice = getComputerChoice();
 
@@ -128,6 +150,8 @@ scissorsButton.addEventListener("click", () => {
   console.log(`Computer chose: ${computerChoice}`);
   console.log(result);
   console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
+  updateScoreBoard();
+  roundCount++;
 });
 
 const board = document.createElement("div");
