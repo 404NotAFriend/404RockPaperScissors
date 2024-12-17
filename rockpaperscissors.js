@@ -120,6 +120,8 @@ rockButton.addEventListener("click", () => {
   console.log(`Computer chose: ${computerChoice}`);
   console.log(result);
   console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
+
+  resultRound.textContent = `${result}`;
   updateScoreBoard();
   roundCount++;
 });
@@ -135,6 +137,8 @@ paperButton.addEventListener("click", () => {
   console.log(`Computer chose: ${computerChoice}`);
   console.log(result);
   console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
+
+  resultRound.textContent = `${result}`;
   updateScoreBoard();
   roundCount++;
 });
@@ -150,6 +154,8 @@ scissorsButton.addEventListener("click", () => {
   console.log(`Computer chose: ${computerChoice}`);
   console.log(result);
   console.log(`Score - Human: ${humanScore}, Computer: ${computerScore}`);
+
+  resultRound.textContent = `${result}`;
   updateScoreBoard();
   roundCount++;
 });
@@ -164,6 +170,24 @@ board.appendChild(paperButton);
 board.appendChild(scissorsButton);
 
 document.body.appendChild(board);
+
+const resultRoundBoard = document.createElement("div");
+resultRoundBoard.style.display = "flex";
+resultRoundBoard.style.justifyContent = "center";
+resultRoundBoard.style.borderRadius = "10px";
+resultRoundBoard.style.width = "300px";
+resultRoundBoard.style.backgroundColor = "Navy";
+resultRoundBoard.style.border = "5px solid #F4F2F3";
+resultRoundBoard.style.borderRadius = "10px";
+
+resultRoundBoard.style.color = "white";
+
+const resultRound = document.createElement("h2");
+resultRound.textContent = "Choose Your Play";
+
+resultRoundBoard.appendChild(resultRound);
+
+document.body.appendChild(resultRoundBoard);
 
 const scoreBoard = document.createElement("div");
 scoreBoard.style.display = "flex";
